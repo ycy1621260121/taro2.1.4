@@ -1,0 +1,22 @@
+{
+	"miniprogramRoot": "dist/",
+	"projectname": "taro",
+	"description": "",
+	"appid": "wxc1bc398b8f605514",
+	"setting": {
+		"urlCheck": true,
+		"es6": false,
+		"postcss": false,
+		"minified": false
+	},
+	"compileType": "miniprogram",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {},
+  "permission": {
+    "scope.userLocation": {
+      "desc": "位置信息效果展示"
+    }
+  }
+
+}
