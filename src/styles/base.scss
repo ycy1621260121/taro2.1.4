@@ -1,0 +1,123 @@
+@import './mixin';
+@import './iconfont';
+
+page,
+body {
+  font-size: 32px;
+  height: 100%;
+  background-color: $bg-color-base;
+  color: $color-dark;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 500px) {
+  html,
+  body {
+    max-width: 1500px;
+    margin: 0 auto;
+    position: relative;
+  }
+}
+
+.taro-img,
+image {
+  width: 100%;
+}
+
+button {
+  outline: none;
+}
+
+//******常用类******/
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1;
+
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.position-center {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: auto;
+}
+.getUserInfoBox{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .popmask{
+      width: 100%;
+      height: 100%;
+      background: url(http://106.13.69.59/muayue/static/images/outimg/wxloginbg.png);
+      background-size:100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+  }
+  .loginBox{
+    position:relative;
+    z-index: 9999;
+    .loginimg{
+      display: block;
+      margin: 0px auto;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+  }
+  .UserInBtn{
+   width: 240px;
+   height: 80px;
+   background-color: #07c160;
+   outline: none;
+   border-radius: 10px;
+   text-align: center;
+   line-height: 80px;
+   color: white;
+   font-size: 32px;
+   position: absolute;
+   top: 320px;
+   left: 50%;
+   margin-left: -120px;
+  }
+}
