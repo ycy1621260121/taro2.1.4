@@ -54,6 +54,8 @@ class Addresslist extends Component {
                    _this.addressUpdate();
                   }
                 })
+              }else{
+                _this.addressUpdate();
               }
             }
           });
