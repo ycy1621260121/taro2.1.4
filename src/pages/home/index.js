@@ -35,6 +35,14 @@ class Index extends Component {
     }) //重新登录
   }
   componentDidMount = () => {
+   if (process.env.TARO_ENV === 'weapp') {
+     //转为微信图片
+     // Taro.downloadFile({
+     //   url: 'http://192.168.199.73:8080/muayue/static/images/qrcode.png',
+     //   success (res) {
+     //     console.log(res.tempFilePath)
+     //   }
+     // })
     let _this= this;
     Taro.getStorage({
       key: 'session_key',
@@ -54,6 +62,7 @@ class Index extends Component {
         }
       }
     })
+     }
     Taro.showLoading({
       title: 'loading'
     });
@@ -108,22 +117,6 @@ class Index extends Component {
       path: '/pages/home/index',
     };
   }
-
-  //小程序上拉加载
-  onReachBottom() {
-    // this.props.dispatch({
-    //   type: 'home/save',
-    //   payload: {
-    //     page: this.props.page + 1,
-    //   },
-    // });
-    this.props.dispatch({
-      type: 'home/product',
-      payload: {
-         page: this.props.page + 1,
-      },
-    });
-  }
   shareMyApp=e=>{
     let _this =this;
     //UserInfoShow
@@ -150,57 +143,62 @@ class Index extends Component {
                   popupShow:true
                 });
                 Taro.downloadFile({
-                  //url: 'http://106.13.69.59/muayue/static/images/banner1.png',
+                  //二维码：url: 'http://106.13.69.59/muayue/static/images/banner1.png',
                   url:avatarUrl,
                   success: function (sres) {
                     ctx.setFontSize(20)
                     ctx.setTextAlign('center')
                     ctx.fillText(nickName, Taro.getSystemInfoSync().windowWidth*0.45, 30);
                     ctx.setFontSize(14)
-                    ctx.fillText(userInfo.country, Taro.getSystemInfoSync().windowWidth*0.45, 180);
-                    ctx.save(); // 先保存状态 已便于画完圆再用
+                    ctx.fillText(userInfo.country, Taro.getSystemInfoSync().windowWidth*0.45, 175);
+                    ctx.save(); //恢复之前保存的绘图上下文 恢复之前保存的绘图上下午即状态 可以继续绘制
                     ctx.beginPath(); //开始绘制
-                    var avatarurl_width = 100;    //绘制的头像宽度
-                    var avatarurl_heigth = 100;   //绘制的头像高度
-                    var avatarurl_x = Taro.getSystemInfoSync().windowWidth*0.05+100;   //绘制的头像在画布上的位置
-                    var avatarurl_y = 50;   //绘制的头像在画布上的位置
-                    let draw_width = Taro.getSystemInfoSync().windowWidth; //画布宽度
-                    let draw_height = 220;//画布高度
-                    //先画个圆
-                    ctx.arc(avatarurl_width / 2 + avatarurl_x, avatarurl_heigth / 2 + avatarurl_y, avatarurl_width / 2, 0, Math.PI * 2, false);
-                    ctx.clip();
-                    ctx.drawImage(sres.tempFilePath, avatarurl_x, avatarurl_y,avatarurl_width, avatarurl_heigth);
-                    ctx.save(); // 先保存状态
-                    ctx.beginPath(); //开始绘制
-                    ctx.setFontSize(14)
-                    ctx.fillText(userInfo.country, Taro.getSystemInfoSync().windowWidth*0.45, 180);
-                    Taro.hideLoading();
-                    ctx.restore(); //恢复之前保存的绘图上下文 恢复之前保存的绘图上下午即状态 可以继续绘制
-                    ctx.draw(false,()=>{
-                      Taro.canvasToTempFilePath({
-                        x: 0,
-                        y: 0,
-                        width: draw_width,
-                        height: draw_height,
-                        fileType: 'jpg',
-                        canvasId: 'myCanvas',
-                        quality:1,
-                        success(res) {
-                          _this.setState({
-                            tempFilePath:res.tempFilePath
-                          });
-                        },fail(err){
-                          Taro.showToast({
-                            title: '生成海报失败',
-                          });
-                        }
-                      })
+                    Taro.downloadFile({
+                      url: 'http://192.168.199.73:8080/muayue/static/images/qrcode.png',
+                      success (rs) {
+                        //开始绘制二维码
+                        ctx.drawImage(rs.tempFilePath, Taro.getSystemInfoSync().windowWidth*0.05+50, 190,200, 200);
+                        ctx.restore(); //恢复之前保存的绘图上下文 恢复之前保存的绘图上下午即状态 可以继续绘制
+                        ctx.beginPath();
+                         //开始绘制头像
+                        var avatarurl_width = 100;    //绘制的头像宽度
+                        var avatarurl_heigth = 100;   //绘制的头像高度
+                        var avatarurl_x = Taro.getSystemInfoSync().windowWidth*0.05+100;   //绘制的头像在画布上的位置
+                        var avatarurl_y = 50;   //绘制的头像在画布上的位置
+                        let draw_width = Taro.getSystemInfoSync().windowWidth; //画布宽度
+                        let draw_height = 420;//画布高度
+                        //先画个圆
+                        ctx.arc(avatarurl_width / 2 + avatarurl_x, avatarurl_heigth / 2 + avatarurl_y, avatarurl_width / 2, 0, Math.PI * 2, false);
+                        ctx.clip();
+                        ctx.drawImage(sres.tempFilePath, avatarurl_x, avatarurl_y,avatarurl_width, avatarurl_heigth);
+                        Taro.hideLoading();
+                        ctx.draw(false,()=>{
+                          Taro.canvasToTempFilePath({
+                            x: 0,
+                            y: 0,
+                            width: draw_width,
+                            height: draw_height,
+                            fileType: 'jpg',
+                            canvasId: 'myCanvas',
+                            quality:1,
+                            success(res) {
+                              _this.setState({
+                                tempFilePath:res.tempFilePath
+                              });
+                            },fail(err){
+                              Taro.showToast({
+                                title: '生成海报失败',
+                              });
+                            }
+                          })
+                        })
+                      }
                     })
                   },fail:function(fres){
 
                   }
                 });
-              }
+              },fail(err){}
             })
           }
         }
@@ -251,7 +249,7 @@ class Index extends Component {
       popupShow:false,
     })
   }
-  bindGetUserInfo(e) {
+  bindGetUserInfo=e=>{
       console.log(e.detail.userInfo)
       if (e.detail.userInfo){
         console.log('用户允许')
@@ -265,6 +263,27 @@ class Index extends Component {
     this.setState({
       UserInfoShow:false
     })
+  }
+  touchMoveM=e=>{
+    console.log(e.touches[0].x,e.touches[0].y)
+  }
+
+  //小程序上拉加载
+  onReachBottom() {
+    //先保存page到state里面
+    this.props.dispatch({
+      type: 'home/save',
+      payload: {
+        page: this.props.page + 1,
+      },
+    });
+    //然后通过page获取每页数据
+    this.props.dispatch({
+      type: 'home/product',
+      payload: {
+         page: this.props.page + 1,
+      },
+    });
   }
 
   render() {
@@ -283,7 +302,7 @@ class Index extends Component {
         <View  className={popupShow ? 'popupMask active' : 'popupMask '}>
           <View  className="mask"  onClick={this.setPopupShow.bind(this)} ></View>
           <View className="popupMaskInner">
-            <Canvas style='width:100%; height: 220px;background-color:white;border-radius: 10px;' canvasId='myCanvas' />
+            <Canvas style='width:100%; height: 420px;background-color:white;border-radius: 10px;' canvasId='myCanvas' disableScroll onTouchMove={this.touchMoveM.bind(this)}/>
             <Button className="saveImgBtn" onClick={this.saveImgBtn.bind(this)} >保存海报</Button>
           </View>
         </View>

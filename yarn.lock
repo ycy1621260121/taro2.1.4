@@ -752,6 +752,14 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
+"@types/react@^16.7.3":
+  version "16.9.34"
+  resolved "https://registry.npm.taobao.org/@types/react/download/@types/react-16.9.34.tgz#f7d5e331c468f53affed17a8a4d488cd44ea9349"
+  integrity sha1-99XjMcRo9Tr/7ReopNSIzUTqk0k=
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^2.2.0"
+
 "@types/sass@^1.16.0":
   version "1.16.0"
   resolved "https://registry.npmjs.org/@types/sass/-/sass-1.16.0.tgz#b41ac1c17fa68ffb57d43e2360486ef526b3d57d"
@@ -2351,6 +2359,11 @@ binary-extensions@^2.0.0:
   resolved "https://registry.npmjs.org/binary-extensions/-/binary-extensions-2.0.0.tgz#23c0df14f6a88077f5f986c0d167ec03c3d5537c"
   integrity sha512-Phlt0plgpIIBOGTT/ehfFnbNlfsDEiqmzE2KRXoX1bLIlir4X/MR+zSyBEkL05ffWgnRSf/DXv+WrUAVr93/ow==
 
+bind-decorator@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.npm.taobao.org/bind-decorator/download/bind-decorator-1.0.11.tgz#e41bc06a1f65dd9cec476c91c5daf3978488252f"
+  integrity sha1-5BvAah9l3ZzsR2yRxdrzl4SIJS8=
+
 bindings@^1.5.0:
   version "1.5.0"
   resolved "https://registry.npmjs.org/bindings/-/bindings-1.5.0.tgz#10353c9e945334bc0511a6d90b38fbc7c9c504df"
@@ -2929,7 +2942,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.5:
+classnames@^2.2.5, classnames@^2.2.6:
   version "2.2.6"
   resolved "http://registry.npm.taobao.org/classnames/download/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha1-Q5Nb/90pHzJtrQogUwmzjQD2UM4=
@@ -3558,6 +3571,11 @@ date-now@^0.1.4:
   version "0.1.4"
   resolved "http://registry.npm.taobao.org/date-now/download/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
   integrity sha1-6vQ5/U1ISK105cx9vvIAZyueNFs=
+
+dayjs@^1.7.7:
+  version "1.8.25"
+  resolved "https://registry.npm.taobao.org/dayjs/download/dayjs-1.8.25.tgz#d09a8696cee7191bc1289e739f96626391b9c73c"
+  integrity sha1-0JqGls7nGRvBKJ5zn5ZiY5G5xzw=
 
 debug@*, debug@^4.0.0, debug@^4.0.1, debug@^4.1.0:
   version "4.1.1"
@@ -9900,6 +9918,18 @@ taro-css-to-react-native@2.1.4:
     css-color-keywords "^1.0.0"
     css-mediaquery "^0.1.2"
     postcss-value-parser "^3.3.0"
+
+taro-ui@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.npm.taobao.org/taro-ui/download/taro-ui-2.3.3.tgz#06cfdfbfa36fb549079a38c814b23d9e360de4f7"
+  integrity sha1-Bs/fv6NvtUkHmjjIFLI9njYN5Pc=
+  dependencies:
+    "@types/react" "^16.7.3"
+    bind-decorator "^1.0.11"
+    classnames "^2.2.6"
+    dayjs "^1.7.7"
+    lodash "^4.17.10"
+    prop-types "^15.6.2"
 
 terser-webpack-plugin@^1.1.0:
   version "1.2.1"
