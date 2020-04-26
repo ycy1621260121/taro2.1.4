@@ -34,7 +34,7 @@ export default {
           type: 'save',
           payload: {
             products_list:
-              page > 1 ? [...products_list, ...data.rows] : data.rows,
+              page > 0 ? [...products_list, ...data.rows] : data.rows,
           },
         });
       }

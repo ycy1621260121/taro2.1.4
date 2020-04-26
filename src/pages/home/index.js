@@ -13,6 +13,8 @@ import './index.scss';
 class Index extends Component {
   config = {
     navigationBarTitleText: '首页',
+    onReachBottomDistance:50,
+    enablePullDownRefresh:true
   };
   constructor(props) {
     super(props);
@@ -268,20 +270,29 @@ class Index extends Component {
     console.log(e.touches[0].x,e.touches[0].y)
   }
 
+
+  //小程序下拉更新
+   onPullDownRefresh(){
+     this.getNewData(0);
+   }
   //小程序上拉加载
   onReachBottom() {
+    //先保存page到state里面
+    this.getNewData(this.props.page + 1);
+  }
+  getNewData(page){
     //先保存page到state里面
     this.props.dispatch({
       type: 'home/save',
       payload: {
-        page: this.props.page + 1,
+        page: page,
       },
     });
     //然后通过page获取每页数据
     this.props.dispatch({
       type: 'home/product',
       payload: {
-         page: this.props.page + 1,
+         page: page,
       },
     });
   }
@@ -314,11 +325,7 @@ class Index extends Component {
             </View>
           ))}
         </View>
-        {/* 流量主广告 */}
-        {Taro.getEnv() === Taro.ENV_TYPE.WEAPP && (
-          <ad unit-id="adunit-dc1c0a38156fa412" />
-        )}
-        <Text className="recommend" onClick={this.shareMyApp.bind(this)}>为你推荐</Text>
+        <Text className="recommend" onClick={this.shareMyApp.bind(this)}>猜你喜欢</Text>
         <GoodsList list={products_list} loading={effects['home/product']} />
       </View>
     );
