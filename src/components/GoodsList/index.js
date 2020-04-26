@@ -57,24 +57,27 @@ class GoodsList extends Component {
                       </View>
                     )}
                 </View>
+                <View className="postext">
+
+                <Text className={item.type_id == 2 && item.mode_id == 1 ? 'dark darkactive': 'dark'}>{item.brand+item.name}</Text>
+
                 <View className="zan-capsule">
                   {item.type_id == 2 && item.mode_id == 1 && (
-                    <View className="zan-capsule__left">VIP</View>
+                    <View className="zan-capsule__left">VIP专享8折</View>
                   )}
-                  {item.limit_tag && item.limit_tag != '' && (
+                  {/*item.limit_tag && item.limit_tag != '' && (
                     <View className="zan-capsule__center">
                       {item.limit_tag}
                     </View>
-                  )}
-                  {item.market_price / 100 > 500 && (
-                    <View className="zan-capsule__right">
-                      参考价¥
-                      {item.market_price / 100}
-                    </View>
-                  )}
+                  )*/}
                 </View>
-                <Text className="dark">{item.brand}</Text>
-                <Text>{item.name}</Text>
+                {`\n`}
+                {item.market_price / 100 > 500 && (
+                  <View className="zan-capsule__right">
+                    <Text className="listzan">¥</Text>{item.market_price / 100}
+                  </View>
+                )}
+                </View>
               </View>
             ))}
           </View>

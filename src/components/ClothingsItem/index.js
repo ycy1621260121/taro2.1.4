@@ -18,11 +18,8 @@ class ClothingsItem extends Component {
     const { clothing, onDeleteClothing } = this.props;
     return (
       <View className="ClothingsItem-page">
-        <View className="WhiteSpace" />
-        <View className="hr" />
         {clothing.map(item => (
           <View key={item.product_id}>
-            <View className="WhiteSpace" />
             <View className="clothing">
               <View className="shop-img">
                 <Image mode="widthFix" src={`${item.images}!w750`} />
@@ -42,8 +39,6 @@ class ClothingsItem extends Component {
                 />
               </View>
             </View>
-            <View className="WhiteSpace" />
-            <View className="hr" />
           </View>
         ))}
       </View>

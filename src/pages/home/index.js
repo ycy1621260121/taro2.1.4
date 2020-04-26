@@ -272,14 +272,14 @@ class Index extends Component {
 
 
   //小程序下拉更新
-   onPullDownRefresh(){
+   /*onPullDownRefresh(){
      this.getNewData(0);
    }
   //小程序上拉加载
   onReachBottom() {
     //先保存page到state里面
     this.getNewData(this.props.page + 1);
-  }
+  }*/
   getNewData(page){
     //先保存page到state里面
     this.props.dispatch({
@@ -295,6 +295,7 @@ class Index extends Component {
          page: page,
       },
     });
+    Taro.stopPullDownRefresh();
   }
 
   render() {

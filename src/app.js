@@ -30,7 +30,7 @@ class App extends Component {
       'pages/addressUpdate/index',
     ],
     window: {
-      backgroundTextStyle: 'light',
+      backgroundTextStyle: 'dark',
       navigationBarBackgroundColor: '#ff6464',
       navigationBarTitleText: '时装衣橱',
       navigationBarTextStyle: 'white',

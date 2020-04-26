@@ -2,7 +2,7 @@
 
 .ClothingsItem-page {
   box-sizing: border-box;
-  padding: 0 40px;
+  padding: 0 20px;
   .WhiteSpace {
     height: 30px;
   }
@@ -57,11 +57,16 @@
     }
   }
   .clothing {
+    margin: 20px auto;
     font-size: 25px;
-    @include wh(100%, 180px);
+    background-color: white;
+    @include wh(96%, 180px);
     @include fj(flex-start);
     align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
     position: relative;
+    padding: 10px 2%;
     .shop-img {
       position: relative;
       height: 100%;

@@ -234,14 +234,14 @@
       height: 98px;
       font-size: 34px;
       color: #fff;
-      background: #f26d83;
+      background: #ff6464;
       line-height: 98px;
       text-align: center;
       position: absolute;
       right: 0;
     }
     .join-disabled {
-      background: mix(#fff, #f26d83, 70%);
+      background: mix(#fff, #ff6464, 70%);
     }
     .nav {
       flex: 1;
@@ -360,7 +360,7 @@
     line-height: 60px;
     font-size: 40px;
     border-radius: 30px;
-    background: $btn-active;
+    background: #f43530;
     color: #fff;
     text-align: center;
     white-space: nowrap;

@@ -180,11 +180,13 @@ class Cart extends Component {
           </View>
         ) : (
           <View className="isLogin">
+            {/*
             <Image
               onClick={this.clothingNumExplain}
               mode="widthFix"
               src="https://static-rs.msparis.com/uploads/1/0/106494e4c47110f6c0e4ea40e15ad446.png"
             />
+            */}
             <ClothingsItem
               clothing={items}
               onDeleteClothing={this.onDeleteClothing}

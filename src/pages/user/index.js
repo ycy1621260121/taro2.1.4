@@ -369,9 +369,9 @@ class User extends Component {
             </View>
           </View>
           {/* 流量主广告 */}
-          {Taro.getEnv() === Taro.ENV_TYPE.WEAPP && (
+          {/*Taro.getEnv() === Taro.ENV_TYPE.WEAPP && (
             <ad unit-id="adunit-acab7e823a01abbd" />
-          )}
+          )*/}
         </View>
       </View>
     );

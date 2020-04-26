@@ -21,8 +21,8 @@ export default class MySwiper extends Component {
         className={!home ? 'swiper-container' : 'swiper'}
         circular
         indicatorDots
-        indicatorColor="#999"
-        indicatorActiveColor="#bf708f"
+        indicatorColor="rgba(255,255,255,0.5)"
+        indicatorActiveColor="#ff6464"
         autoplay
       >
         {banner.map((item, index) => (
