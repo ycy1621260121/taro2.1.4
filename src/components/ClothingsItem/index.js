@@ -13,13 +13,18 @@ class ClothingsItem extends Component {
     clothing: [],
     deleteClothing: function() {},
   };
+  gotoDetail = e => {
+    Taro.navigateTo({
+      url: `/pages/detail/index?id=${e.currentTarget.dataset.id}`,
+    });
+  };
 
   render() {
     const { clothing, onDeleteClothing } = this.props;
     return (
       <View className="ClothingsItem-page">
         {clothing.map(item => (
-          <View key={item.product_id}>
+          <View key={item.product_id} onClick={this.gotoDetail}>
             <View className="clothing">
               <View className="shop-img">
                 <Image mode="widthFix" src={`${item.images}!w750`} />

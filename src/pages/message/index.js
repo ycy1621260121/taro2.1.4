@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View, Image } from '@tarojs/components';
+import { View, Image,ScrollView } from '@tarojs/components';
 import { connect } from '@tarojs/redux';
 import './index.scss';
 
@@ -15,12 +15,12 @@ class Message extends Component {
 
   render() {
     return (
-      <View className="message-page">
+      <ScrollView className="message-page">
         <Image
           mode="widthFix"
           src="http://static-r.msparis.com/uploads/8/a/8af1e11caa2c7dc29894777852d50eb3.png"
         />
-      </View>
+      </ScrollView>
     );
   }
 }

@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View, Text, Image } from '@tarojs/components';
+import { View, Text, Image,ScrollView } from '@tarojs/components';
 import { connect } from '@tarojs/redux';
 import './index.scss';
 
@@ -139,8 +139,8 @@ class Addresslist extends Component {
    const {userName,address,telNumber}= this.state;
    const { addressList } = this.props;
     return (
-      <View className="addressList-page">
-           {process.env.TARO_ENV === 'weapp'?
+      <ScrollView className="addressList-page">
+           {process.env.TARO_ENV === 'weapp' && userName?
             (<View className="content">
               <View className="info">
                 <View className="contact">
@@ -208,7 +208,7 @@ class Addresslist extends Component {
             </View>)
 
             }
-      </View>
+      </ScrollView>
     );
   }
 }

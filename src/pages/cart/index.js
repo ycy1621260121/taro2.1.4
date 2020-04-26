@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
 import { connect } from '@tarojs/redux';
-import { View, Image, Button, Text } from '@tarojs/components';
+import { View, Image, Button, Text,ScrollView } from '@tarojs/components';
 import ClothingsItem from '../../components/ClothingsItem';
 import * as cartApi from './service';
 import './index.scss';
@@ -167,7 +167,7 @@ class Cart extends Component {
     const { items } = this.props;
     const isH5 = Taro.getEnv() === Taro.ENV_TYPE.WEB;
     return (
-      <View className="cart-page">
+      <ScrollView className="cart-page">
         {items.length == 0 ? (
           <View className="empty">
             <Image
@@ -213,7 +213,7 @@ class Cart extends Component {
             </View>
           </View>
         )}
-      </View>
+      </ScrollView>
     );
   }
 }

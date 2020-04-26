@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View } from '@tarojs/components';
+import { View ,ScrollView} from '@tarojs/components';
 import { connect } from '@tarojs/redux';
 import './index.scss';
 
@@ -55,7 +55,7 @@ class Order extends Component {
   render() {
     const { orderType, activeTypeIndex } = this.state;
     return (
-      <View className="order-page">
+      <ScrollView className="order-page">
         <View className="toggleType">
           {orderType.map((item, index) => (
             <View
@@ -69,7 +69,7 @@ class Order extends Component {
           ))}
         </View>
         <View className="empty" />
-      </View>
+      </ScrollView>
     );
   }
 }

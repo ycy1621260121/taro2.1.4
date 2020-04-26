@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View, Image, Text, Icon, OpenData,Radio,RadioGroup,Button } from '@tarojs/components';
+import { View, Image, Text, Icon, OpenData,Radio,RadioGroup,Button,ScrollView } from '@tarojs/components';
 import { connect } from '@tarojs/redux';
 import './index.scss';
 import scanCode_img from '../../images/user/scan.png';
@@ -215,7 +215,7 @@ class User extends Component {
     const { mobile, coupon_number, nickname, list } = this.props;
     const { title,options,isOpened } =this.state;
     return (
-      <View className="user-page">
+      <ScrollView className="user-page">
       <AtModal isOpened={isOpened}>
         <AtModalContent>
         <View className='page-section'>
@@ -240,6 +240,14 @@ class User extends Component {
             data-url="/pages/login/index"
             onClick={this.goPage}
           >
+            <View className="avatar-container">
+            {process.env.TARO_ENV === 'weapp' &&
+              <OpenData type='userAvatarUrl' className="avatar" />
+            }
+            {process.env.TARO_ENV === 'h5' &&
+              <Image className="avatar" src={avatar_img} />
+            }
+            </View>
             <View className="left">
               {process.env.TARO_ENV === 'weapp'?
               (<View className='name black'>
@@ -251,6 +259,7 @@ class User extends Component {
               </View>)
               }
               <View>
+                {/*
                 <View
                   className="msg"
                   data-url="/pages/message/index"
@@ -264,6 +273,7 @@ class User extends Component {
                     src="http://static-r.msparis.com/uploads/9/a/9a00ce9a5953a6813a03ee3324cbad2a.png"
                   />
                 </View>
+                */}
                 <View
                   className="msg"
                   onClick={this.toScanCode}
@@ -272,14 +282,7 @@ class User extends Component {
                 </View>
               </View>
             </View>
-            <View className="avatar-container">
-            {process.env.TARO_ENV === 'weapp' &&
-              <OpenData type='userAvatarUrl' className="avatar" />
-            }
-            {process.env.TARO_ENV === 'h5' &&
-              <Image className="avatar" src={avatar_img} />
-            }
-            </View>
+            
           </View>
           {title?(<View
             className="maphere"
@@ -373,7 +376,7 @@ class User extends Component {
             <ad unit-id="adunit-acab7e823a01abbd" />
           )*/}
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
