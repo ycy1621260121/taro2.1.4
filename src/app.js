@@ -59,7 +59,7 @@ class App extends Component {
       color: '#333',
       selectedColor: '#ff6464',
       backgroundColor: '#fff',
-      borderStyle: 'white',
+      borderStyle: 'black',
     },
     permission: {
       "scope.userLocation": {
