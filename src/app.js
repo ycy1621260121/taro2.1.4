@@ -30,10 +30,10 @@ class App extends Component {
       'pages/addressUpdate/index',
     ],
     window: {
-      backgroundTextStyle: 'dark',
-      navigationBarBackgroundColor: '#fff',
+      backgroundTextStyle: 'light',
+      navigationBarBackgroundColor: '#ff6464',
       navigationBarTitleText: '时装衣橱',
-      navigationBarTextStyle: 'black',
+      navigationBarTextStyle: 'white',
     },
     tabBar: {
       list: [
@@ -57,7 +57,7 @@ class App extends Component {
         },
       ],
       color: '#333',
-      selectedColor: '#333',
+      selectedColor: '#ff6464',
       backgroundColor: '#fff',
       borderStyle: 'white',
     },

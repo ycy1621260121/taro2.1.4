@@ -318,6 +318,7 @@ class Index extends Component {
           </View>
         </View>
         <MySwiper banner={banner} home />
+        {/*
         <View className="nav-list">
           {brands.map((item, index) => (
             <View className="nav-item" key={index}>
@@ -325,7 +326,8 @@ class Index extends Component {
             </View>
           ))}
         </View>
-        <Text className="recommend" onClick={this.shareMyApp.bind(this)}>猜你喜欢</Text>
+        */}
+        <Text className="recommend" onClick={this.shareMyApp.bind(this)}>精品推荐</Text>
         <GoodsList list={products_list} loading={effects['home/product']} />
       </View>
     );
