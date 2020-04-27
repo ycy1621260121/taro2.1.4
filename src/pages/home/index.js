@@ -4,6 +4,7 @@ import { connect } from '@tarojs/redux';
 import MySwiper from '../../components/MySwiper';
 import GoodsList from '../../components/GoodsList';
 import './index.scss';
+import search_img from '../../images/search.png';
 
 @connect(({ home, cart, loading }) => ({
   ...home,
@@ -21,7 +22,7 @@ class Index extends Component {
     this.state = {
       popupShow:false,
       tempFilePath:'',
-      UserInfoShow:false
+      UserInfoShow:false,
     };
   }
   wxlogin(){
@@ -272,14 +273,14 @@ class Index extends Component {
 
 
   //小程序下拉更新
-   /*onPullDownRefresh(){
+   onPullDownRefresh(){
      this.getNewData(0);
    }
   //小程序上拉加载
   onReachBottom() {
     //先保存page到state里面
     this.getNewData(this.props.page + 1);
-  }*/
+  }
   getNewData(page){
     //先保存page到state里面
     this.props.dispatch({
@@ -297,7 +298,11 @@ class Index extends Component {
     });
     Taro.stopPullDownRefresh();
   }
-
+  searchBtn(){
+    Taro.navigateTo({
+      url: `/pages/search/index`,
+    });
+  }
   render() {
     const { banner, brands, products_list, effects } = this.props;
     const { popupShow,UserInfoShow}=this.state;
@@ -316,6 +321,12 @@ class Index extends Component {
           <View className="popupMaskInner">
             <Canvas style='width:100%; height: 420px;background-color:white;border-radius: 10px;' canvasId='myCanvas' disableScroll onTouchMove={this.touchMoveM.bind(this)}/>
             <Button className="saveImgBtn" onClick={this.saveImgBtn.bind(this)} >保存海报</Button>
+          </View>
+        </View>
+        <View className="searchBarBox">
+          <View className="searchBar" onClick={this.searchBtn}>
+              <Image mode="widthFix" src={search_img} className="search_img"/>
+              <Text className="search_text">搜索</Text>
           </View>
         </View>
         <MySwiper banner={banner} home />

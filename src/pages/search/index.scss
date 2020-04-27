@@ -1,0 +1,39 @@
+@import '../../styles/mixin';
+.search-page {
+  @include wh(100%, 100%);
+}
+.searchBarBox{
+  padding: 20px;
+  background-color: #FF6464;
+  margin-bottom: 20px;
+  .searchBar{
+    padding-left: 64px;
+    border-radius: 8px;
+    height: 64px;
+    text-align: left;
+    color: rgba(0,0,0,0.5);
+    background: #FFFFFF;
+    line-height: 64px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    .search_img{
+        width: 24px;
+        left: 24px;
+        position: absolute;
+        align-self: center;
+    }
+    .search_text{
+      height: 64px;
+      width: 100%;
+      line-height: 64px;
+      font-size: 28px;
+      color: #333;
+    }
+  }
+}
+.search-li{
+  background-color: white;
+  padding: 20px;
+  border-top: 1px solid #F1F1F1;
+}
