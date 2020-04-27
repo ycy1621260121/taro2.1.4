@@ -37,7 +37,7 @@ class Index extends Component {
       }
     }) //重新登录
   }
-  componentDidMount = () => {
+  componentDidMount = async () => {
    if (process.env.TARO_ENV === 'weapp') {
      //转为微信图片
      // Taro.downloadFile({

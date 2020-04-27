@@ -113,6 +113,10 @@ class User extends Component {
        Taro.navigateTo({
          url: e.currentTarget.dataset.url,
        });
+     }else{
+       Taro.navigateTo({
+         url: e.currentTarget.dataset.url,
+       });
      }
 
   };
@@ -282,7 +286,7 @@ class User extends Component {
                 </View>
               </View>
             </View>
-            
+
           </View>
           {title?(<View
             className="maphere"
@@ -370,6 +374,9 @@ class User extends Component {
             <View className="right">
               <View className="iconfont icon-more arrow" />
             </View>
+          </View>
+          <View className="Logistics">
+              <Text>物流详情需要开通快递一百api接口</Text>
           </View>
           {/* 流量主广告 */}
           {/*Taro.getEnv() === Taro.ENV_TYPE.WEAPP && (
