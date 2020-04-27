@@ -24,8 +24,9 @@ class ClothingsItem extends Component {
     return (
       <View className="ClothingsItem-page">
         {clothing.map(item => (
-          <View key={item.product_id} onClick={this.gotoDetail}>
+          <View key={item.product_id}>
             <View className="clothing">
+              <View onClick={this.gotoDetail} className="clothinglist">
               <View className="shop-img">
                 <Image mode="widthFix" src={`${item.images}!w750`} />
               </View>
@@ -35,6 +36,7 @@ class ClothingsItem extends Component {
                 <View className="size p">
                   {`${item.spu} | ${item.specification || '均码'}`}
                 </View>
+              </View>
               </View>
               <View className="edit">
                 <View

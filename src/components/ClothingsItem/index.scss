@@ -67,6 +67,13 @@
     overflow: hidden;
     position: relative;
     padding: 10px 2%;
+    .clothinglist{
+      width: 90%;
+      height: 180rpx;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
     .shop-img {
       position: relative;
       height: 100%;
