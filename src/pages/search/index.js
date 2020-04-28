@@ -14,12 +14,8 @@ class Search extends Component {
   componentDidMount = () => {
 
   };
-  getNewData(page,title){
-    //先保存page到state里面
-    //Taro.stopPullDownRefresh();
-  }
   setSearch=e=>{
-    console.log(e.detail.value);
+    //console.log(e.detail.value);
     this.props.dispatch({
       type: 'search/save',
       payload: {
