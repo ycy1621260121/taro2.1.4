@@ -3,12 +3,16 @@
   @include wh(100%, 100%);
 }
 .searchBarBox{
-  padding: 20px;
   background-color: #FF6464;
   margin-bottom: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   .searchBar{
     padding-left: 64px;
     border-radius: 8px;
+    margin: 20px;
     height: 64px;
     text-align: left;
     color: rgba(0,0,0,0.5);
@@ -32,8 +36,11 @@
     }
   }
 }
-.search-li{
-  background-color: white;
-  padding: 20px;
-  border-top: 1px solid #F1F1F1;
+.search-ul{
+  margin-top:124px ;
+  .search-li{
+    background-color: white;
+    padding: 20px;
+    border-top: 1px solid #F1F1F1;
+  }
 }

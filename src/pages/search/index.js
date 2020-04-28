@@ -10,8 +10,6 @@ import search_img from '../../images/search.png';
 class Search extends Component {
   config = {
     navigationBarTitleText: '搜索',
-    onReachBottomDistance:50,
-    enablePullDownRefresh:true
   };
   componentDidMount = () => {
 
@@ -42,17 +40,20 @@ class Search extends Component {
         <View className="searchBarBox">
           <View className="searchBar">
               <Image mode="widthFix" src={search_img} className="search_img"/>
-              <Input type='text' placeholder='搜索' focus className="search_text" placeholderStyle="color:#999" onInput={this.setSearch}/>
+              <Input type='text' confirmType="search" placeholder='搜索' focus className="search_text" placeholderStyle="color:#999" onInput={this.setSearch}/>
           </View>
         </View>
-        {search_list.map((item, index) => (
-          <View
-            key={index}
-            className="search-li"
-          >
-           <Text className="search-li-text">{item.title}</Text>
-          </View>
-        ))}
+        <View className="search-ul">
+          {search_list.map((item, index) => (
+            <View
+              key={index}
+              className="search-li"
+            >
+             <Text className="search-li-text">{item.title}</Text>
+            </View>
+          ))
+          }
+        </View>
       </View>
     );
   }
